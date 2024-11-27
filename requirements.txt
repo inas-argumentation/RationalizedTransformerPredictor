@@ -1,0 +1,9 @@
+captum==0.7.0
+datasets==2.20.0
+numpy==2.1.3
+scikit_learn==1.4.2
+spacy==3.7.5
+sty==1.0.6
+torch==2.3.1+cu121
+tqdm==4.66.4
+transformers==4.42.3
