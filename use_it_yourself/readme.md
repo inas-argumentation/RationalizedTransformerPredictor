@@ -61,8 +61,11 @@ Arguments to the ```RTP``` class are:
 * ```loss_fn```: The loss function for your classification problem. The input to this function will be the model output (logits of shape (n_samles, n_classes)), as well as the label you provide for the sample.
 * ```output_fn```: Either "softmax" or "sigmoid", depending on the type of classification problem (single label or multi-label classification).
 
-Hyperparameters can be adjusted in the dict at the top of ```RTP.py```.
-Note that the forward pass for a single sample requires (during training) multiple forward passes through the base model.
-You may need to choose a lower batch size compared to normal training and use gradient accumulation instead.
+Tips:
+* Hyperparameters can be adjusted in the dict at the top of ```RTP.py```.
+* Note that the forward pass for a single sample requires (during training) multiple forward passes through the base model. You may need to choose a lower batch size compared to normal training and use gradient accumulation instead.
+* In our study, we always performed three epochs of normal classification training before starting to train the masks, so that the masks do not adapt to the untrained model. To do this, just do `model.train_step(batch, labels, skip_mask_update=True)` during the first few epochs.
+* Note that it might take a while until the masks converge to a sensible state (e.g., for small datasets it might take more than 15 epochs through the data, and the optimal state might be reached even later).
+* We found that gradient clipping sometimes reduces the likelihood of sudden changes in mask predictions that might lead to degenerate solutions. To try this, just add `torch.nn.utils.clip_grad_value_(model.parameters(), 0.05)` before `optimizer.step()`.
 
 Please make sure to cite our work if you use the RTP in your research.
