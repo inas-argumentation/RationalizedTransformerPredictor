@@ -64,3 +64,5 @@ Arguments to the ```RTP``` class are:
 Hyperparameters can be adjusted in the dict at the top of ```RTP.py```.
 Note that the forward pass for a single sample requires (during training) multiple forward passes through the base model.
 You may need to choose a lower batch size compared to normal training and use gradient accumulation instead.
+
+Please make sure to cite our work if you use the RTP in your research.
