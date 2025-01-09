@@ -34,7 +34,7 @@ Then, place the data located in the `movies` folder inside of `data/Movies`.
 * For the INAS dataset (biological abstracts), we are unfortunately not allowed to publicly distribute the dataset due to copyright issues.
 On request, we might be able to provide a private copy for research purposes. For this, please reach out to marc.brinner@uni-bielefeld.de
 
-Afterwards, create an environment using the `requirements.txt` file provided.
+Afterwards, create an environment using the `requirements.txt` file provided. The project was created using Python 3.12.
 
 ## Training/Evaluation
 
