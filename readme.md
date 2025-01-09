@@ -1,5 +1,9 @@
 This is the code repository for the paper [Rationalizing Transformer Predictions via End-To-End Differentiable Self-Training](https://aclanthology.org/2024.emnlp-main.664/) by Marc Brinner and Sina Zarrieß, published at EMNLP 2024.
 
+## Use the RTP!
+
+We created an easy-to-use wrapper that turns transformer encoders like BERT, RoBERTa, ELECTRA or DeBERTa into rationalized transformer predictors. The code and a conceptual usage example are available [here](use_it_yourself).
+
 ## Repository Structure
 
 The repository contains code for training and evaluating all methods tested in our paper, except A2R and A2R-Noise, for which we used
@@ -20,6 +24,7 @@ the [original paper's code](https://github.com/adamstorek/noise_injection).
     * Integrated Gradients [(Sundararajan et al.)](https://arxiv.org/abs/1703.01365)
     * Shapley value sampling [(Castro et al.)](https://www.sciencedirect.com/science/article/pii/S0305054808000804)
 * `supervised_span_model`: This folder contains code for training a supervised model on a dataset annotated with spans.
+* `use_it_yourself`: This folder contains a python file that can be included in your project to quickly turn any base model into an rationalized transformer predictor.
 * `weakly_supervised_models`: This folder contains code for training and evaluating the weakly supervised rationalized classifiers (except A2R and A2R-Noise):
     * 2-Player [(Lei et al.)](https://aclanthology.org/D16-1011/)
     * 3-Player [(Yu et al.)](https://aclanthology.org/D19-1420/)
